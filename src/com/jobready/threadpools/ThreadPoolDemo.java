@@ -16,7 +16,17 @@ public class ThreadPoolDemo {
         Runnable processor3 = new MessageProcessor(4);
         executor.execute(processor3);
 
-        executor.shutdown(); //Rejects any new tasks from being submitted
+        Runnable processor4 = new MessageProcessor(4);
+        executor.execute(processor4);
+
+
+        executor.shutdown(); //Rejects any new tasks from being submitted. Gracefully shuts down the service
+
+        while (!executor.isTerminated()){
+
+        }
+
+        System.out.println("Submitted all tasks");
 
     }
 
